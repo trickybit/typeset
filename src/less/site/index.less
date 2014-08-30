@@ -3,12 +3,14 @@
 
 //defaults
 @default-font: 18px;
-@typeset-scale: (unit(@default-font / 16, rem)) by 1.25;
+@typeset-basis: (unit(@default-font / 16, rem));
+@typeset-scale: 1.25;
 @typeset-weights: 100,200,400,600,700;
 @typeset-grid-res: sqrt(@default-font);
 
 //define
 & {
+  .typeset(@typeset-basis);
   .typeset.scale(@typeset-scale);
   .typeset.grid(@typeset-grid-res);
   .typeset.weight(@typeset-weights);
