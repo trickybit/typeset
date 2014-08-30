@@ -1,0 +1,24 @@
+{
+  "name": "typeset",
+  "version": "1.0.0",
+  "homepage": "https://github.com/trickybit/typeset",
+  "authors": [
+    "tappily <tappily.b@gmail.com>"
+  ],
+  "main": "src/less/typeset/typeset.less",
+  "keywords": [
+    "LESS",
+    "CSS",
+    "mixin",
+    "type",
+    "font"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

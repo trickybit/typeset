@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="{{lang.code}}">
+<head>
+  <meta charset="utf-8">
+  <title>{{default title page.basename}}</title>
+  <meta name="description" content="{{default description site.description}}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"/>
+  {{#block 'styles'}}{{css 'default.css'}}{{/block}}
+</head>
+<body>
+  {{#block 'header'}}<header>…</header>{{/block}}
+  {{#block 'main'}}<main>{{> body}}</main>{{/block}}
+  {{#block 'footer'}}<footer>…</footer>{{/block}}
+  {{#block 'scripts'}}{{/block}}
+</body>
+</html>
