@@ -35,3 +35,12 @@ Scale the base font provided exponentially with the keywords:
   .typeset.scale(18px by 1.5);
   .typeset.scale.size(large); //-> font-size: 24px
 ```
+
+## .typeset.grid
+
+Set the resolution of the baseline grid. By default, the grid resolution is same the font basis. Increasing resolution, sub-divides the basis to create more grid lines to snap content to.
+
+```css
+  .typeset.scale(18px by 1.5);
+  .typeset.grid(sqrt(18));
+```
