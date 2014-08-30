@@ -31,5 +31,6 @@ Scale the base font provided exponentially with the keywords:
 - and xx-large (3).
 
 ```css
-  .typeset.scale.size(medium);
+  .typeset.scale(18px by 1.25);
+  .typeset.scale.size(medium); //-> font-size: 18px
 ```
