@@ -1,5 +1,7 @@
-.typeset() {
-  
+.typeset(@basis) {
+
+  @_basis: @basis;
+
   .weight(@weights;) {
     
     @_weights: @weights;
@@ -90,9 +92,8 @@
     
   }
   
-  .scale(@basis-by-factor) {
-    @basis: extract(@basis-by-factor, 1);
-    @factor: extract(@basis-by-factor, length(@basis-by-factor));
+  .scale(@factor) {
+    @_factor: @factor;
     
     .size(@lexical-nth) {
       .size(@lexical-nth, {
@@ -133,14 +134,14 @@
       }
       
       & when (isnumber(@nth)) {
-        @font-size: @basis * pow(@factor, @nth);
+        @font-size: @_basis * pow(@_factor, @nth);
         @rules();
       }
     }
   }
   
-  .grid(@resolution: sqrt(@basis)) {
-    @grid: @basis / @resolution;
+  .grid(@resolution: sqrt(@_basis)) {
+    @grid: @_basis / @resolution;
     
     .line-height(@size, @height-basis) {
       .line-height(@size, @height-basis, {
@@ -178,7 +179,7 @@
   .guides() {
     background: linear-gradient(0, magenta 1px, transparent 1px);
     background-color: fade(magenta, 10%);
-    background-size: 100% @basis;
+    background-size: 100% @_basis;
     
     :nth-child(n) {
       box-shadow: inset 0 0 0 1px magenta;
