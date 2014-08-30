@@ -19,7 +19,8 @@ Provide a font size basis and scale factor in a natural language form.
 Scale the base font provided exponentially with relative integers from negative infinity to infinity.
 
 ```css
-  .typeset.scale.size(+1);
+  .typeset.scale(18px by 1.5);
+  .typeset.scale.size(+1); //-> font-size: 24px
 ```
 
 Scale the base font provided exponentially with the keywords: 
@@ -31,6 +32,6 @@ Scale the base font provided exponentially with the keywords:
 - and xx-large (3).
 
 ```css
-  .typeset.scale(18px by 1.25);
-  .typeset.scale.size(medium); //-> font-size: 18px
+  .typeset.scale(18px by 1.5);
+  .typeset.scale.size(large); //-> font-size: 24px
 ```
