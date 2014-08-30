@@ -1,0 +1,188 @@
+.typeset() {
+  
+  .weight(@weights;) {
+    
+    @_weights: @weights;
+    
+    .rel(@lexical-nth) {
+      
+      .rel(@lexical-nth, {
+        font-weight: @font-weight;
+      });
+      
+    }
+    
+    .rel(@nth, @rules) {
+      
+      & when(iskeyword(@nth)) {
+        
+        & when(@nth = lighter) {
+          .rel(-2, @rules);
+        }
+
+        & when(@nth = light) {
+          .rel(-1, @rules);
+        }
+
+        & when(@nth = normal) {
+          .rel(0, @rules);
+        }
+
+        & when(@nth = bold) {
+          .rel(1, @rules)
+        }
+
+        & when(@nth = bolder) {
+          .rel(2, @rules)
+        }
+      }
+      
+      & when(isnumber(@nth)) {
+          @medium: round(length(@_weights) / 2);
+          @i: min(max(@medium + @nth, 1), length(@_weights));
+        & {
+          @font-weight: extract(@_weights, @i);
+          @rules();  
+        }        
+      }
+    }
+    
+    .lift(@lexical-weight) {
+      .lift(@lexical-weight, {
+        font-weight: @font-weight;
+      });
+    }
+    
+    .lift(@weight, @rules) {
+      @font-weight: @weight;
+      @rules();
+    }
+    
+    .name(@name) {
+      & when (@name = extralight), (@name = ultralight) {
+        .lift(100);
+      }
+      & when (@name = light), (@name = thin) {
+        .lift(200);
+      }
+      & when (@name = book), (@name = demi) {
+        .lift(300);
+      }
+      & when (@name = normal), (@name = regular) {
+        .lift(400);
+      }
+      & when (@name = medium) {
+        .lift(500);
+      }
+      & when (@name = semibold), (@name = demibold) {
+        .lift(600);
+      }
+      & when (@name = bold) {
+        .lift(700);
+      }
+      & when (@name = black), (@name = extrabold), (@name = heavy) {
+        .lift(800);
+      }
+      & when (@name = poster), (@name = fat), (@name = ultrablack), (@name = extrablack) {
+        .lift(900);
+      }
+    }
+    
+  }
+  
+  .scale(@basis-by-factor) {
+    @basis: extract(@basis-by-factor, 1);
+    @factor: extract(@basis-by-factor, length(@basis-by-factor));
+    
+    .size(@lexical-nth) {
+      .size(@lexical-nth, {
+        font-size: @font-size;
+      });
+    }
+    
+    .size(@nth, @rules) {
+      
+      & when(iskeyword(@nth)) {
+        & when (@nth = medium) {
+          .size(0, @rules);
+        }
+
+        & when (@nth = large) {
+          .size(1, @rules);
+        }
+
+        & when (@nth = x-large) {
+          .size(2, @rules);
+        }
+
+        & when (@nth = xx-large) {
+          .size(3, @rules);
+        }
+
+        & when (@nth = small) {
+          .size(-1, @rules);
+        }
+
+        & when (@nth = x-small) {
+          .size(-2, @rules);
+        }
+
+        & when (@nth = xx-small) {
+          .size(-3, @rules);
+        }
+      }
+      
+      & when (isnumber(@nth)) {
+        @font-size: @basis * pow(@factor, @nth);
+        @rules();
+      }
+    }
+  }
+  
+  .grid(@resolution: sqrt(@basis)) {
+    @grid: @basis / @resolution;
+    
+    .line-height(@size, @height-basis) {
+      .line-height(@size, @height-basis, {
+        line-height: @line-height;
+      });
+    }
+    
+    .line-height(@size, @height-basis, @rules) {
+      @b: ceil(@size * @height-basis / @grid);
+      & {
+        @line-height: unit(@grid / @size * @b);
+        @rules();
+      }
+    }
+    
+    .margin(@margins) {
+      .iterate(@count) when (@count > 0) {
+        .iterate(@count - 1);
+        @margin: extract(@margins, @count);
+        
+        & when(iskeyword(@margin)) {
+          margin+_: @margin;
+        }
+
+        & when(isnumber(@margin)) {
+          margin+_: (@grid * @margin);
+        }
+        
+      }
+      .iterate(length(@margins));
+    }
+    
+  }
+  
+  .guides() {
+    background: linear-gradient(0, magenta 1px, transparent 1px);
+    background-color: fade(magenta, 10%);
+    background-size: 100% @basis;
+    
+    :nth-child(n) {
+      box-shadow: inset 0 0 0 1px magenta;
+      background-color: fade(magenta, 25%);
+    }
+  }
+}
