@@ -76,6 +76,15 @@ Passing a ruleset to scale provides a 'font-size' variable.
   });
 ```
 
+## Grid margin
+Use relative margin values based on the grid resolution.
+```css
+  .typeset(18px);
+  .typeset.grid(2);
+  .typeset.grid.margin(1 auto); //-> margin: 9px auto;
+```
+
+
 ## Guides
 Show guidelines for the typeset spec.
 ```css
