@@ -1,10 +1,6 @@
-# typeset
+# Typeset
 
-LESS mixin for typesetting
-
-## Typeset
-
-Set the font-basis for a closure.
+LESS mixin for typesetting. Start, by setting the font-basis for a closure.
 
 ### Usage
 
@@ -14,7 +10,7 @@ Set the font-basis for a closure.
 
 ## Scale
 
-Provide a font size basis and scale factor in a natural language form.
+Provide a scale factor for sizing fonts from the typeset basis.
 
 ### Usage
 
