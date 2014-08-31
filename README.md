@@ -92,5 +92,12 @@ Show guidelines for the typeset spec.
   .typeset.guides;
 ```
 
+## Weights
+Provide a list of weights.
+```css
+  @my-weights: 100 200 300 400 500 600 700 800 900;
+  .typeset.weights(@my-weights);
+```
+
 ## DRY example
 The examples above are atomic and, although functional, are unneccessarily repetitious. This [GIST](#) shows a more realistic usage of these mixins where a lexical approach greatly reduces repetition.
