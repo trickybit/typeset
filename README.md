@@ -2,7 +2,7 @@
 
 LESS mixin for typesetting
 
-## .typeset
+## Typeset
 
 Set the font-basis for a closure.
 
@@ -12,7 +12,7 @@ Set the font-basis for a closure.
   .typeset(18px);
 ```
 
-## .typeset.scale
+## Scale
 
 Provide a font size basis and scale factor in a natural language form.
 
@@ -22,7 +22,7 @@ Provide a font size basis and scale factor in a natural language form.
   .typeset.scale(1.5);
 ```
 
-## .typeset.scale.size;
+## Scale size
 
 Scale the base font provided exponentially with relative integers from negative infinity to infinity.
 
@@ -48,7 +48,7 @@ Scale the base font provided exponentially with relative integers from negative 
   .typeset.scale.size(large); //-> font-size: 24px
 ```
 
-## .typeset.grid
+## Grid
 Set the resolution of the baseline grid. By default, the grid resolution is same the font basis. Increasing resolution, sub-divides the basis to create more grid lines to snap content to.
 
 ### Usage
@@ -57,7 +57,7 @@ Set the resolution of the baseline grid. By default, the grid resolution is same
   .typeset.grid(sqrt(18)); // square root of basis is default
 ```
 
-## .typeset.grid.line-height
+## Grid line-height
 Set line-height as a basis for alignment with the baseline grid. 
 
 ### Parameters
@@ -78,6 +78,13 @@ Passing a ruleset to scale provides a 'font-size' variable.
     font-size: @font-size;
     .typeset.grid.line-height(@font-size, 1.2);
   });
+```
+
+## Guides
+Show guidelines for the typeset spec.
+```css
+  .typeset(18px);
+  .typeset.guides;
 ```
 
 ## DRY example
