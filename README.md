@@ -54,7 +54,7 @@ Set the resolution of the baseline grid. By default, the grid resolution is same
 ### Usage
 ```css
   .typeset(18px);
-  .typeset.grid(sqrt(18));
+  .typeset.grid(sqrt(18)); // square root of basis is default
 ```
 
 ## .typeset.grid.line-height
