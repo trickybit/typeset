@@ -92,11 +92,20 @@ Show guidelines for the typeset spec.
   .typeset.guides;
 ```
 
-## Weights
+## Weight
 Provide a list of weights.
 ```css
   @my-weights: 100 200 300 400 500 600 700 800 900;
-  .typeset.weights(@my-weights);
+  .typeset.weight(@my-weights);
+```
+## Weight rel
+Select a relative font weight.
+```css
+  @my-weights: 100 200 300 400 500 600 700 800 900;
+  .typeset.weight(@my-weights);
+  .typeset.weight.rel(bolder); //-> 700
+  .typeset.weight.rel(-4); //-> 100
+  .typeset.weight.rel(-100); //-> 100
 ```
 
 ## DRY example
